@@ -4,6 +4,7 @@
 컴포즈
 완료
 ```
+<br>
 
 ## 📍 STUDY PROGRESS
 ### [모던 안드로이드 - Jetpack Compose 입문](https://www.inflearn.com/course/%EB%AA%A8%EB%8D%98-%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%BB%B4%ED%8F%AC%EC%A6%88#curriculum)
