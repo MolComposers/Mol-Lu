@@ -4,8 +4,14 @@ const val num = 20
 
 fun main() {
     var i = 10
-    var name = "채연"
-    var point = 3.3
+    var l = 20L
 
-    i = 20
+    l = i.toLong()
+    i = l.toInt()
+
+    var name = ""
+    name = i.toString()
+
+    var name2 = "10"
+    i = name2.toInt()
 }
