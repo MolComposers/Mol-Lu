@@ -1,14 +1,14 @@
 package com.ocomwan.kotlinbasics
 
-import kotlin.math.max
-import kotlin.math.min
-
-const val num = 20
+import kotlin.random.Random
 
 fun main() {
-    val i = 10
-    val j = 20
+    var randomNumber = Random.nextInt()
+    print(randomNumber)
 
-    print(max(i, j))
-    print(min(i, j))
+    randomNumber = Random.nextInt(0, 100) // 0 ~ 99
+    print(randomNumber)
+
+    val randomDouble = Random.nextDouble(0.0, 1.0) // 0.0 ~ 0.9999...
+    print(randomDouble)
 }
