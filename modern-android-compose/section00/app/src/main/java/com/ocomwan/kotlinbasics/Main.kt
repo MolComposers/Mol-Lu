@@ -8,6 +8,7 @@ import kotlin.random.Random
 const val num = 20 // Compile Time Constant
 
 fun main() {
+    practiceLoop()
 }
 
 private fun practicePrint() {
@@ -23,7 +24,7 @@ private fun practiceVariablesAndConstants() {
     i = 20
 
     val num = 20
-    // num = 30
+    // num = 30 (X)
 }
 
 private fun practiceTypeConversion() {
@@ -98,4 +99,29 @@ private fun practiceConditionalExpression() {
 
     val booleanResult = if (i > 10) true else false
     println(booleanResult)
+}
+
+private fun practiceLoop() {
+    val items = listOf(1, 2, 3, 4, 5)
+
+    for (item in items) {
+        print(item)
+    }
+
+    items.forEach { item ->
+        print(item)
+    }
+
+    // for (int i = 0; i < items.length; i++)
+    for (i in 0..(items.size - 1)) {
+        print(items[i])
+    }
+
+    for (i in 0 until items.size) {
+        print(items[i])
+add *
+
+        break
+        continue
+    }
 }
