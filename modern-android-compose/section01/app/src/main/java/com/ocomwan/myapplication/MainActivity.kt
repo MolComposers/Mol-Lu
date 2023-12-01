@@ -5,8 +5,11 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -24,7 +27,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyApplicationTheme {
-                practiceColumn()
+                practiceBox()
             }
         }
     }
@@ -44,6 +47,26 @@ class MainActivity : ComponentActivity() {
             ) {
                 Text("Hello")
                 Text("World")
+            }
+        }
+    }
+
+    @Composable
+    fun practiceBox() {
+        Box(
+            modifier = Modifier
+                .background(color = Color.Green)
+                .fillMaxWidth()
+                .height(200.dp),
+        ) {
+            Text("오늘 컴포즈")
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(16.dp),
+                contentAlignment = Alignment.BottomEnd,
+            ) {
+                Text("완료")
             }
         }
     }
