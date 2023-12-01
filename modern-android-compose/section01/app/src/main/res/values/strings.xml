@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="section1_kermit_img">커밋의 프로필 이미지</string>
+    <string name="section1_favorite">Favorite</string>
+    <string name="section1_header">HEADER</string>
+    <string name="section1_letter">글씨 %1$s</string>
+    <string name="section1_footer">FOOTER</string>
 </resources>
