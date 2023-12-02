@@ -8,7 +8,7 @@ import kotlin.random.Random
 const val num = 20 // Compile Time Constant
 
 fun main() {
-    practiceLoop()
+    practiceList()
 }
 
 private fun practicePrint() {
@@ -119,9 +119,18 @@ private fun practiceLoop() {
 
     for (i in 0 until items.size) {
         print(items[i])
-add *
 
         break
         continue
     }
+}
+
+private fun practiceList() {
+    val items = listOf(1, 2, 3, 4, 5)
+
+//    items.add()
+
+    val mutableItems = mutableListOf(1, 2, 3, 4, 5)
+    mutableItems.add(6)
+    mutableItems.remove(3)
 }
