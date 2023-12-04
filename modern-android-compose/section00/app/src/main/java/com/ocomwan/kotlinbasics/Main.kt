@@ -8,7 +8,7 @@ import kotlin.random.Random
 const val num = 20 // Compile Time Constant
 
 fun main() {
-    practiceList()
+    practiceArray()
 }
 
 private fun practicePrint() {
@@ -133,4 +133,20 @@ private fun practiceList() {
     val mutableItems = mutableListOf(1, 2, 3, 4, 5)
     mutableItems.add(6)
     mutableItems.remove(3)
+}
+
+private fun practiceArray() {
+    val items = arrayOf(1, 2, 3)
+    items.size
+    items.get(0)
+    items.set(0, 10) // Java
+    items[0] = 10 // Kotlin
+
+    // List를 활용하는 것이 권장됨
+
+    try {
+        val item = items[4]
+    } catch (e: Exception) {
+        print(e.message)
+    }
 }
