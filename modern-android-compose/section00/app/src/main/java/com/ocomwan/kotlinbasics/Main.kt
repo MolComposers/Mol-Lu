@@ -8,7 +8,7 @@ import kotlin.random.Random
 const val num = 20 // Compile Time Constant
 
 fun main() {
-    practiceArray()
+    practiceNullSafety()
 }
 
 private fun practicePrint() {
@@ -148,5 +148,22 @@ private fun practiceArray() {
         val item = items[4]
     } catch (e: Exception) {
         print(e.message)
+    }
+}
+
+private fun practiceNullSafety() {
+    var name: String? = null
+    name = "채연"
+    name = null
+
+    var name2: String = ""
+    if (name != null) {
+        name2 = name
+    }
+
+    name2 = name!!
+
+    name?.let {
+        name2 = name
     }
 }
