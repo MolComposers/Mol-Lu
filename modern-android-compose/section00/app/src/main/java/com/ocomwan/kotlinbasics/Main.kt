@@ -8,7 +8,7 @@ import kotlin.random.Random
 const val num = 20 // Compile Time Constant
 
 fun main() {
-    practiceNullSafety()
+    practiceFunction()
 }
 
 private fun practicePrint() {
@@ -167,3 +167,20 @@ private fun practiceNullSafety() {
         name2 = name
     }
 }
+
+private fun practiceFunction() {
+    // Method와 Function의 차이점
+    print(sum(10, 20))
+    print(sum(b = 20, a = 30)) // 순서를 바꿔도 괜찮음. 명시적. 가독성 향상.
+}
+
+// Top-Level Function : 모든 파일에서 사용 가능
+fun sum(a: Int, b: Int, c: Int = 0): Int {
+    return a + b + c
+}
+
+fun sum2(a: Int, b: Int, c: Int = 0) = a + b + c
+
+// Java Method Overload
+// fun sum(a: Int, b: Int) = a + b
+// fun sum(a: Int, b: Int, c: Int) = a + b + c
