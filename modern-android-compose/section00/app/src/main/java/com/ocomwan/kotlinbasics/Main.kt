@@ -8,7 +8,7 @@ import kotlin.random.Random
 const val num = 20 // Compile Time Constant
 
 fun main() {
-    practiceFunction()
+    practiceClassDataClassGetterSetter()
 }
 
 private fun practicePrint() {
@@ -184,3 +184,38 @@ fun sum2(a: Int, b: Int, c: Int = 0) = a + b + c
 // Java Method Overload
 // fun sum(a: Int, b: Int) = a + b
 // fun sum(a: Int, b: Int, c: Int) = a + b + c
+
+private fun practiceClassDataClassGetterSetter() {
+    val john = Person("John", 20)
+    val john2 = Person("John", 20)
+//    print(john.name)
+    print(john.age)
+
+//    john.name = "Bell"
+    john.age = 24
+
+    println(john)
+    println(john2)
+    println(john == john2) // false
+    println(john === john2)
+//    john.hobby = "탁구"
+}
+
+// data class : equals, hashCode 등의 함수 자동 재정의
+data class Person(
+    private val name: String, // getter 미제공
+    var age: Int,
+) {
+    var hobby = "축구"
+        private set // setter 미제공
+        get() = "취미 : $field"
+
+    // 생성할 때마다 실행
+    init {
+        print("init")
+    }
+
+    fun some() {
+        hobby = "농구"
+    }
+}
