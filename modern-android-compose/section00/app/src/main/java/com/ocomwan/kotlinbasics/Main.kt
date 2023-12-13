@@ -8,7 +8,7 @@ import kotlin.random.Random
 const val num = 20 // Compile Time Constant
 
 fun main() {
-    practiceClassDataClassGetterSetter()
+    practiceExtends()
 }
 
 private fun practicePrint() {
@@ -219,3 +219,35 @@ data class Person(
         hobby = "농구"
     }
 }
+
+private fun practiceExtends() {
+    val dog = Dog()
+    val cat = Cat()
+    
+    println(dog.move())
+    println(cat.move())
+}
+
+abstract class Animal {
+    // 코틀린은 open 키워드를 붙여야 override 가능
+    open fun move() {
+        println("이동!")
+    }
+}
+
+class Dog : Animal() {
+    override fun move() {
+        println("껑충? 강아지가 왜 껑충 뜀")
+    }
+}
+
+class Cat : Animal() {
+    override fun move() {
+        println("고양이는 살금 ㅇㅈ")
+    }
+}
+
+// 기본 클래스는 상속 불가능, open 키워드 필요
+open class Human
+
+class SuperMan : Human()
