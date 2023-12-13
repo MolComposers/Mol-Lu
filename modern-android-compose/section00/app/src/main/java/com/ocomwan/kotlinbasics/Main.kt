@@ -300,7 +300,7 @@ private fun practiceGeneric() {
 class Box<T>(var value: T)
 // class Box<T>(value: T) -> val 또는 var 지정하지 않으면 getter, setter가 제공되지 않아서 value 호출 불가능 (그냥 인자)
 
-// 콜백 함수 타입 : input과 output 정의
+// 콜백 함수 타입 : input과 output 정의:
 private fun practiceCallbackFunction() {
     myFunc(10) {
         println("콜백 함수 호출")
