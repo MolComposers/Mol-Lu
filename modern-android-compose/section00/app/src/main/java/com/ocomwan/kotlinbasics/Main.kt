@@ -8,7 +8,7 @@ import kotlin.random.Random
 const val num = 20 // Compile Time Constant
 
 fun main() {
-    practiceGeneric()
+    practiceCallbackFunction()
 }
 
 private fun practicePrint() {
@@ -299,3 +299,18 @@ private fun practiceGeneric() {
 
 class Box<T>(var value: T)
 // class Box<T>(value: T) -> val 또는 var 지정하지 않으면 getter, setter가 제공되지 않아서 value 호출 불가능 (그냥 인자)
+
+// 콜백 함수 타입 : input과 output 정의
+private fun practiceCallbackFunction() {
+    myFunc(10) {
+        println("콜백 함수 호출")
+    } // 별다른 매개변수가 없다면 소괄호 생략 가능
+
+    myFunc(20)
+}
+
+fun myFunc(a: Int, callback: () -> Unit = { /* default */ }) { // input과 output이 없는 함수
+    println("함수 시작!")
+    callback
+    println("함수 끝!")
+}
