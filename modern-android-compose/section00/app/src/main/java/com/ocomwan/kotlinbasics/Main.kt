@@ -8,7 +8,7 @@ import kotlin.random.Random
 const val num = 20 // Compile Time Constant
 
 fun main() {
-    practiceExtends()
+    practiceInterface()
 }
 
 private fun practicePrint() {
@@ -223,7 +223,7 @@ data class Person(
 private fun practiceExtends() {
     val dog = Dog()
     val cat = Cat()
-    
+
     println(dog.move())
     println(cat.move())
 }
@@ -235,15 +235,23 @@ abstract class Animal {
     }
 }
 
-class Dog : Animal() {
+class Dog : Animal(), Drawable {
     override fun move() {
         println("껑충? 강아지가 왜 껑충 뜀")
     }
+
+    override fun draw() {
+        println("강아지 그리기")
+    }
 }
 
-class Cat : Animal() {
+class Cat : Animal(), Drawable {
     override fun move() {
         println("고양이는 살금 ㅇㅈ")
+    }
+
+    override fun draw() {
+        println("고양이 그리기")
     }
 }
 
@@ -251,3 +259,15 @@ class Cat : Animal() {
 open class Human
 
 class SuperMan : Human()
+
+private fun practiceInterface() {
+    val dog = Dog()
+    val cat = Cat()
+
+    println(dog.draw())
+    println(cat.draw())
+}
+
+interface Drawable {
+    fun draw()
+}
