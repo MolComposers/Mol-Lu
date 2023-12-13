@@ -8,7 +8,7 @@ import kotlin.random.Random
 const val num = 20 // Compile Time Constant
 
 fun main() {
-    practiceInterface()
+    practiceTypeCheckIs()
 }
 
 private fun practicePrint() {
@@ -270,4 +270,21 @@ private fun practiceInterface() {
 
 interface Drawable {
     fun draw()
+}
+
+private fun practiceTypeCheckIs() {
+    val dog: Animal = Dog()
+    val cat = Cat()
+
+    dog.move()
+//    dog.draw() -> Animal 타입 상태에서는 사용 불가능
+
+    if (dog is Dog) { // true
+        println("멍멍이")
+        dog.move()
+        dog.draw() // Dog로 타입 변환된 후에는 사용 가능
+    }
+//    if (dog is Cat) println("고양이") -> incompatible type check
+
+    dog as Cat // as : 타입 강제 변환
 }
