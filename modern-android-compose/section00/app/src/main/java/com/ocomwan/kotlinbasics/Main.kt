@@ -8,7 +8,7 @@ import kotlin.random.Random
 const val num = 20 // Compile Time Constant
 
 fun main() {
-    practiceTypeCheckIs()
+    practiceGeneric()
 }
 
 private fun practicePrint() {
@@ -288,3 +288,14 @@ private fun practiceTypeCheckIs() {
 
     dog as Cat // as : 타입 강제 변환
 }
+
+private fun practiceGeneric() {
+    val box = Box(10)
+    val box2 = Box("박스")
+
+    println(box.value)
+    println(box2.value)
+}
+
+class Box<T>(var value: T)
+// class Box<T>(value: T) -> val 또는 var 지정하지 않으면 getter, setter가 제공되지 않아서 value 호출 불가능 (그냥 인자)
