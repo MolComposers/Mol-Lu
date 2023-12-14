@@ -5,4 +5,8 @@
     <string name="section1_header">HEADER</string>
     <string name="section1_letter">글씨 %1$s</string>
     <string name="section1_footer">FOOTER</string>
+    <string name="section1_today_compose">오늘 컴포즈</string>
+    <string name="section1_complete">완료</string>
+    <string name="section1_hello">Hello</string>
+    <string name="section1_world">World</string>
 </resources>

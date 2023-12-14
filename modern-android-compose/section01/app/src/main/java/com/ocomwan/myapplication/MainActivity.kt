@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -25,8 +24,6 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -55,20 +52,16 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun PracticeColumn() {
-        Surface(
-            color = MaterialTheme.colorScheme.background,
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(color = Color.Blue)
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.SpaceBetween,
         ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(color = Color.Blue)
-                    .padding(16.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.SpaceBetween,
-            ) {
-                Text("Hello")
-                Text("World")
-            }
+            Text(stringResource(R.string.section1_hello))
+            Text(stringResource(R.string.section1_world))
         }
     }
 
@@ -80,26 +73,27 @@ class MainActivity : ComponentActivity() {
                 .fillMaxWidth()
                 .height(200.dp),
         ) {
-            Text("오늘 컴포즈")
+            Text(stringResource(R.string.section1_today_compose))
             Box(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(16.dp),
                 contentAlignment = Alignment.BottomEnd,
             ) {
-                Text("완료")
+                Text(stringResource(R.string.section1_complete))
             }
         }
     }
 
     @Composable
     fun PracticeListAndLazyColumn() {
+//        val scrollState = rememberScrollState()
+//        ListUsingColum(scrollState = scrollState)
         ListUsingLazyColumn()
     }
 
     @Composable
     private fun ListUsingColum(scrollState: ScrollState) {
-        val scrollState = rememberScrollState()
         Column(
             modifier = Modifier
                 .background(color = Color.Green)
@@ -116,7 +110,6 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun ListUsingLazyColumn() {
-        val scrollState = rememberScrollState()
         LazyColumn(
             modifier = Modifier
                 .background(color = Color.Green)
@@ -166,8 +159,7 @@ class MainActivity : ComponentActivity() {
             ),
         ) {
             Box(
-                modifier = Modifier
-                    .height(200.dp),
+                modifier = Modifier.height(200.dp),
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.img_kermit),
@@ -175,8 +167,7 @@ class MainActivity : ComponentActivity() {
                     contentScale = ContentScale.Crop,
                 )
                 Box(
-                    modifier = Modifier
-                        .fillMaxSize(),
+                    modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.TopEnd,
                 ) {
                     IconButton(onClick = { onTabFavorite(!isFavorite) }) {
@@ -194,6 +185,8 @@ class MainActivity : ComponentActivity() {
     @Preview(showBackground = true)
     @Composable
     fun DefaultPreview() {
-        PracticeColumn()
+        MyApplicationTheme {
+            PracticeImageCardState()
+        }
     }
 }
