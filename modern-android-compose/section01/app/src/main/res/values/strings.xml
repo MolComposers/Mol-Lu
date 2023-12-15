@@ -9,4 +9,6 @@
     <string name="section1_complete">완료</string>
     <string name="section1_hello">Hello</string>
     <string name="section1_world">World</string>
+    <string name="section1_click">클릭</string>
+    <string name="section1_input_text">입력 : %1$s</string>
 </resources>
