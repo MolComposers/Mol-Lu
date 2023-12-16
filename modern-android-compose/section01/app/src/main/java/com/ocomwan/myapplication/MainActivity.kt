@@ -1,8 +1,5 @@
 @file:OptIn(
     ExperimentalMaterial3Api::class,
-    ExperimentalMaterial3Api::class,
-    ExperimentalMaterial3Api::class,
-    ExperimentalComposeUiApi::class,
     ExperimentalComposeUiApi::class,
 )
 
