@@ -61,7 +61,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MyApplicationTheme {
-                PracticeTextFieldButtonSnackBar()
+                PracticeNavigation()
             }
         }
     }
@@ -237,6 +237,10 @@ class MainActivity : ComponentActivity() {
                 Text(stringResource(R.string.section1_click))
             }
         }
+    }
+
+    @Composable
+    fun PracticeNavigation() {
     }
 
     @Preview(showBackground = true)
