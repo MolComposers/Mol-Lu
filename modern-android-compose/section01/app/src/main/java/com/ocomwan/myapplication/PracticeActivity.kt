@@ -56,7 +56,7 @@ import androidx.compose.ui.unit.dp
 import com.ocomwan.myapplication.ui.theme.MyApplicationTheme
 import kotlinx.coroutines.launch
 
-class MainActivity : ComponentActivity() {
+class PracticeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
