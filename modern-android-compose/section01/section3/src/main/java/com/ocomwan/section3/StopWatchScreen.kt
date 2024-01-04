@@ -37,7 +37,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ocomwan.section3.StopWatchState.Pause
 import com.ocomwan.section3.StopWatchState.Running
 
-class StopWatchActivity : ComponentActivity() {
+class StopWatchScreen : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
