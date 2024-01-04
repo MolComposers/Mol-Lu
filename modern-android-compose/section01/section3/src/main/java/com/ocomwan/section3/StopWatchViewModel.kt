@@ -4,13 +4,13 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
+import com.ocomwan.section3.StopWatchState.Pause
 import com.ocomwan.section3.StopWatchState.Running
-import com.ocomwan.section3.StopWatchState.Stop
 import java.util.Timer
 import kotlin.concurrent.timer
 
 class StopWatchViewModel : ViewModel() {
-    private val _stopWatchState: MutableState<StopWatchState> = mutableStateOf(Stop)
+    private val _stopWatchState: MutableState<StopWatchState> = mutableStateOf(Pause)
     val stopWatchState: State<StopWatchState>
         get() = _stopWatchState
 
@@ -27,9 +27,9 @@ class StopWatchViewModel : ViewModel() {
 
     private var time = 0
     private var timerTask: Timer? = null
-    private var lap = 0
+    private var lap = 1
 
-    private fun start() {
+    fun start() {
         _stopWatchState.value = Running
         timerTask = timer(period = 10) {
             time++
@@ -38,15 +38,15 @@ class StopWatchViewModel : ViewModel() {
         }
     }
 
-    private fun pause() {
-        _stopWatchState.value = Stop
+    fun pause() {
+        _stopWatchState.value = Pause
         timerTask?.cancel()
     }
 
-    private fun reset() {
+    fun reset() {
         timerTask?.cancel()
         time = 0
-        _stopWatchState.value = Stop
+        _stopWatchState.value = Pause
         _sec.value = 0
         _milliSec.value = 0
 
@@ -54,7 +54,7 @@ class StopWatchViewModel : ViewModel() {
         lap = 1
     }
 
-    private fun recordLapTime() {
+    fun recordLapTime() {
         _lapTimes.value.add(0, "$lap LAP : ${sec.value}.${milliSec.value}")
         lap++
     }
