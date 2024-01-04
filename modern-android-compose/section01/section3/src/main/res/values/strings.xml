@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">section3</string>
+    <string name="section3_stop_watch">StopWatch</string>
+    <string name="section3_refresh_button">stop watch refresh button icon</string>
+    <string name="section3_toggle_button">stop watch toggle button icon</string>
+    <string name="section3_lap_time">LAP TIME</string>
 </resources>

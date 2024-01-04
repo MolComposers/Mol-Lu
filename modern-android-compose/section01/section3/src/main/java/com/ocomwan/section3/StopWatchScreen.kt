@@ -31,6 +31,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -53,8 +54,8 @@ class StopWatchScreen : ComponentActivity() {
                 stopWatchState = stopWatchState,
                 lapTimes = lapTimes,
                 onReset = { viewModel.reset() },
-                onToggle = { stopWatchState ->
-                    when (stopWatchState) {
+                onToggle = { state ->
+                    when (state) {
                         Pause -> {
                             viewModel.start()
                         }
@@ -82,7 +83,7 @@ fun MainScreen(
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("StopWatch") })
+            TopAppBar(title = { Text(stringResource(R.string.section3_stop_watch)) })
         },
     ) { padding ->
         Column(
@@ -130,7 +131,7 @@ fun MainScreen(
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.baseline_refresh_24),
-                        contentDescription = "stop watch refresh button icon",
+                        contentDescription = stringResource(R.string.section3_refresh_button),
                     )
                 }
 
@@ -145,14 +146,14 @@ fun MainScreen(
                                 Running -> R.drawable.baseline_pause_24
                             },
                         ),
-                        contentDescription = "stop watch toggle button icon",
+                        contentDescription = stringResource(R.string.section3_toggle_button),
                     )
                 }
 
                 Button(
                     onClick = { onLapTime() },
                 ) {
-                    Text("LAP TIME")
+                    Text(stringResource(R.string.section3_lap_time))
                 }
             }
         }
