@@ -11,6 +11,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -30,6 +31,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -37,6 +39,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.ocomwan.section3.StopWatchState.Pause
 import com.ocomwan.section3.StopWatchState.Running
+import com.ocomwan.section3.ui.theme.MyApplicationTheme
 
 class StopWatchScreen : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,25 +51,27 @@ class StopWatchScreen : ComponentActivity() {
             val stopWatchState = viewModel.stopWatchState.value
             val lapTimes = viewModel.lapTimes.value
 
-            MainScreen(
-                sec = sec,
-                milliSec = milliSec,
-                stopWatchState = stopWatchState,
-                lapTimes = lapTimes,
-                onReset = { viewModel.reset() },
-                onToggle = { state ->
-                    when (state) {
-                        Pause -> {
-                            viewModel.start()
-                        }
+            MyApplicationTheme {
+                MainScreen(
+                    sec = sec,
+                    milliSec = milliSec,
+                    stopWatchState = stopWatchState,
+                    lapTimes = lapTimes,
+                    onReset = { viewModel.reset() },
+                    onToggle = { state ->
+                        when (state) {
+                            Pause -> {
+                                viewModel.start()
+                            }
 
-                        Running -> {
-                            viewModel.pause()
+                            Running -> {
+                                viewModel.pause()
+                            }
                         }
-                    }
-                },
-                onLapTime = { viewModel.recordLapTime() },
-            )
+                    },
+                    onLapTime = { viewModel.recordLapTime() },
+                )
+            }
         }
     }
 }
@@ -125,35 +130,52 @@ fun MainScreen(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                FloatingActionButton(
-                    onClick = { onReset() },
-                    containerColor = Color.Red,
+                Box(
+                    contentAlignment = Alignment.CenterStart,
+                    modifier = Modifier.weight(1f),
                 ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.baseline_refresh_24),
-                        contentDescription = stringResource(R.string.section3_refresh_button),
-                    )
+                    FloatingActionButton(
+                        onClick = { onReset() },
+                        containerColor = Color.Red,
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.baseline_refresh_24),
+                            contentDescription = stringResource(R.string.section3_refresh_button),
+                            colorFilter = ColorFilter.tint(color = Color.White),
+                        )
+                    }
                 }
 
-                FloatingActionButton(
-                    onClick = { onToggle(stopWatchState) },
-                    containerColor = Color.Green,
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = Modifier.weight(1f),
                 ) {
-                    Image(
-                        painter = painterResource(
-                            id = when (stopWatchState) {
-                                Pause -> R.drawable.baseline_play_arrow_24
-                                Running -> R.drawable.baseline_pause_24
-                            },
-                        ),
-                        contentDescription = stringResource(R.string.section3_toggle_button),
-                    )
+                    FloatingActionButton(
+                        onClick = { onToggle(stopWatchState) },
+                        containerColor = Color.Green,
+                    ) {
+                        Image(
+                            painter = painterResource(
+                                id = when (stopWatchState) {
+                                    Pause -> R.drawable.baseline_play_arrow_24
+                                    Running -> R.drawable.baseline_pause_24
+                                },
+                            ),
+                            contentDescription = stringResource(R.string.section3_toggle_button),
+                            colorFilter = ColorFilter.tint(color = Color.White),
+                        )
+                    }
                 }
 
-                Button(
-                    onClick = { onLapTime() },
+                Box(
+                    contentAlignment = Alignment.CenterEnd,
+                    modifier = Modifier.weight(1f),
                 ) {
-                    Text(stringResource(R.string.section3_lap_time))
+                    Button(
+                        onClick = { onLapTime() },
+                    ) {
+                        Text(stringResource(R.string.section3_lap_time))
+                    }
                 }
             }
         }
